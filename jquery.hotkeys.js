@@ -18,7 +18,9 @@
 
   // accepts a function or url
   $.hotkey = function(key, value) {
-    $.hotkeys.cache[key.charCodeAt(0) - 32] = value
+	  key = key.charCodeAt(0)
+		key = ((key >= 48 && key <= 57) || (key >= 96 && key <= 105)) ? key : (key - 32)
+    $.hotkeys.cache[key] = value
     return this
   }
   
